@@ -18,7 +18,7 @@
 
     <!-- Custom Style CSS -->
     <link rel="stylesheet" href="{{ asset('theme/assets/css/style.css') }}">
-<meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 </head>
 
@@ -129,7 +129,8 @@
                         </a>
                     </div>
                     <div class="main__logo">
-                        <h1 class="main__logo--title"><a class="main__logo--link" href="index.html"><img class="main__logo--img" src="assets/img/logo/nav-log.png" alt="logo-img"></a></h1>
+                        <h1 class="main__logo--title"><a class="main__logo--link" href="index"><img class="main__logo--img" src="{{ asset('uploads/logo/' . (siteLogo()->logo ?? 'default-logo.png')) }}"
+                                    alt="logo-img"></a></h1>
                     </div>
                     <div class="header__search--widget header__sticky--none d-none d-lg-block">
                         <form class="d-flex header__search--form" action="#">
@@ -377,8 +378,16 @@
         <div class="offcanvas__header">
             <div class="offcanvas__inner">
                 <div class="offcanvas__logo">
-                    <a class="offcanvas__logo_link" href="index.html">
-                        <img src="assets/img/logo/nav-log.png" alt="Grocee Logo" width="158" height="36">
+                    <a class="offcanvas__logo_link" href="index">
+                        @php
+                        $logo = siteLogo();
+                        @endphp
+
+                        <img src="{{ $logo && $logo->logo
+    ? asset('uploads/logo/'.$logo->logo)
+    : asset('theme/assets/img/default-logo.png') }}"
+
+                            style="height:60px; width:auto; display:block;">
                     </a>
                     <button class="offcanvas__close--btn" data-offcanvas>close</button>
                 </div>
@@ -416,7 +425,7 @@
                                         @foreach($cat->subcategories as $sub)
                                         <li class="offcanvas__sub_menu_li" style="padding-left:18px">
                                             <a class="offcanvas__sub_menu_item" href="{{ url('subcategory/'.$sub->id) }}">
-                                                 {{ $sub->name }}
+                                                {{ $sub->name }}
                                             </a>
                                         </li>
                                         @endforeach
@@ -561,15 +570,15 @@
                 <p class="minicart__header--desc">Clothing and fashion products are limited</p>
             </div>
             <div class="minicart__product minicart">
-               
-               
+
+
             </div>
             <div class="minicart__amount">
                 <div class="minicart__amount_list d-flex justify-content-between">
                     <span>Sub Total:</span>
                     <span class="totalAmount" data-cart-url="/totalAmount"></span>
 
-                    <span class="cartTotalAmount" ><b >$0.00</b></span>
+                    <span class="cartTotalAmount"><b>$0.00</b></span>
                 </div>
                 <div class="minicart__amount_list d-flex justify-content-between">
                     <span>Total:</span>

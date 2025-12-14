@@ -601,7 +601,6 @@ class CartController extends Controller
 
     public function checkout_review()
     {
-
         $user = auth()->user();
         return view('checkout-review', compact('user'));
     }
