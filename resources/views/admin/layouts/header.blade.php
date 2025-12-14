@@ -176,6 +176,11 @@
                                 </a>
                         </li>
 
+                          <li>
+                            <a href="manage-logo">Manage Logo
+                                </a>
+                        </li>
+
                     </ul>
                 </li>
 

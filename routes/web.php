@@ -82,6 +82,9 @@ Route::post('admin/product/store', [AdminController::class, 'add_product'])->nam
    Route::get('admin/manage-slider', [AdminController::class, 'get_slider'])->name('admin.manage-slider');
 Route::get('/admin/add-subcategory',[AdminController::class, 'subcat'])->name('admin.add-subcategory');
 Route::post('/admin/add-subcategory',[AdminController::class, 'add_subcat'])->name('admin.add-subcategory');
+Route::get('/admin/manage-logo',[AdminController::class, 'manage_logo'])->name('admin.manage-logo');
+Route::get('admin/logo/update-logo/{id}', [AdminController::class, 'edit_logo'])->name('admin.logo.update-logo');
+Route::put('admin/logo/update-logo/{id}', [AdminController::class, 'upload_logo'])->name('admin.logo.update-logo');
 
 
 

@@ -9,6 +9,7 @@ use App\Models\Admin\Category;
 use App\Models\Admin\Product;
 use App\Models\Admin\Carausel;
 use App\Models\Admin\SubCategory;
+use App\Models\WebLogo;
 
 class AdminController extends Controller
 {
@@ -324,6 +325,51 @@ public function destroy($id)
 
     return response()->json($subcategories);
 }
+
+
+
+  public function manage_logo()
+    {
+        $logo = WebLogo::all();
+        return view('admin.logo.manage-logo', compact('logo'));
+    }
+  public function edit_logo($id)
+{
+    $logo = WebLogo::findOrFail($id);
+    return view('admin.logo.update-logo', compact('logo'));
+}
+
+ public function upload_logo(Request $request,$id)
+{
+   $request->validate([
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            
+        ]);
+
+          $logo = WebLogo::findOrFail($id);
+
+          // Handle image update
+    if ($request->hasFile('image')) {
+        if ($logo->logo && file_exists(public_path('uploads/logo/' . $logo->logo))) {
+            unlink(public_path('uploads/logo/' . $logo->logo));
+        }
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('uploads/categories'), $imageName);
+        $logo->logo = $imageName;
+       
+    }
+
+    $logo->status = $request->status;
+    $logo->save();
+
+    return redirect()->route('admin.manage-logo')->with('success', 'Logo updated successfully!');
+
+
+}
+
+
+
+
 
 
 }

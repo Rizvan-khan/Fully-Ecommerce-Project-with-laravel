@@ -14,6 +14,7 @@ class WebController extends Controller
    //  $categories = Category::with('subcategories')->get();
      $category = Category::with(['subcategories.products'])->get();
     $products = Product::with(['category', 'subcategory'])->get();
+   
     return view('welcome',compact('slider','products','category'));
    }
 

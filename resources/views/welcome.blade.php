@@ -8,79 +8,39 @@
     <section class="hero__slider--section">
         <div class="hero__slider--inner hero__slider--activation swiper">
             <div class="hero__slider--wrapper swiper-wrapper">
+                @foreach ($slider as $slider)
                 <div class="swiper-slide ">
-                    <div class="hero__slider--items home1__slider--bg">
+                    <div class="hero__slider--items home1__slider--bg" style="background-image: url('{{ asset($slider->image) }}');">
                         <div class="container-fluid">
                             <div class="hero__slider--items__inner">
                                 <div class="row row-cols-1">
                                     <div class="col">
+
                                         <div class="slider__content">
-                                            <p class="slider__content--desc desc1 mb-15"><img class="slider__text--shape__icon" src="{{ asset('theme/assets/img/icon/text-shape-icon.png')}}" alt="text-shape-icon"> New Collection</p>
-                                            <h2 class="slider__content--maintitle h1">The Great Fashion <br>
-                                                Collection 2022</h2>
-                                            <p class="slider__content--desc desc2 d-sm-2-none mb-40">Up To 40% Off Final Sale Items. <br>
-                                                Caught in the Moment!</p>
+                                            <p class="slider__content--desc desc1 mb-15"><img class="slider__text--shape__icon" src="{{ asset('uploads/slider/' . $slider->image) }}"
+                                                    alt="{{ $slider->heading }}"> New Collection</p>
+                                            <h2 class="slider__content--maintitle h1">{{ $slider->heading }}</h2>
+                                            <p class="slider__content--desc desc2 d-sm-2-none mb-40">{{ $slider->description }}</p>
                                             <a class="slider__btn primary__btn" href="shop.html">Show Collection
                                                 <svg class="primary__btn--arrow__icon" xmlns="http://www.w3.org/2000/svg" width="20.2" height="12.2" viewBox="0 0 6.2 6.2">
                                                     <path d="M7.1,4l-.546.546L8.716,6.713H4v.775H8.716L6.554,9.654,7.1,10.2,9.233,8.067,10.2,7.1Z" transform="translate(-4 -4)" fill="currentColor"></path>
                                                 </svg>
                                             </a>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide ">
-                    <div class="hero__slider--items home1__slider--bg two">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="hero__slider--items__inner">
-                                        <div class="slider__content">
-                                            <p class="slider__content--desc desc1 mb-15"><img class="slider__text--shape__icon" src="{{ asset('theme/assets/img/icon/text-shape-icon.png')}}" alt="text-shape-icon"> New Collection</p>
-                                            <h2 class="slider__content--maintitle h1">The Great Fashion <br>
-                                                Collection 2022</h2>
-                                            <p class="slider__content--desc desc2 d-sm-2-none mb-40 ">Up To 40% Off Final Sale Items. <br>
-                                                Caught in the Moment!</p>
-                                            <a class="primary__btn slider__btn" href="shop.html">Show Collection
-                                                <svg class="slider__btn--arrow__icon" xmlns="http://www.w3.org/2000/svg" width="20.2" height="12.2" viewBox="0 0 6.2 6.2">
-                                                    <path d="M7.1,4l-.546.546L8.716,6.713H4v.775H8.716L6.554,9.654,7.1,10.2,9.233,8.067,10.2,7.1Z" transform="translate(-4 -4)" fill="currentColor"></path>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide ">
-                    <div class="hero__slider--items home1__slider--bg three">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-lg-6 offset-lg-6">
-                                    <div class="hero__slider--items__inner">
-                                        <div class="slider__content text-center">
-                                            <p class="slider__content--desc desc1 mb-15"><img class="slider__text--shape__icon" src="{{ asset('theme/assets/img/icon/text-shape-icon.png')}}" alt="text-shape-icon"> New Collection</p>
-                                            <h2 class="slider__content--maintitle h1">The Great Fashion <br>
-                                                Collection 2022</h2>
-                                            <p class="slider__content--desc desc2 d-sm-2-none mb-40">Up To 40% Off Final Sale Items. <br>
-                                                Caught in the Moment!</p>
-                                            <a class="primary__btn slider__btn" href="shop.html">Show Collection
-                                                <svg class="slider__btn--arrow__icon" xmlns="http://www.w3.org/2000/svg" width="20.2" height="12.2" viewBox="0 0 6.2 6.2">
-                                                    <path d="M7.1,4l-.546.546L8.716,6.713H4v.775H8.716L6.554,9.654,7.1,10.2,9.233,8.067,10.2,7.1Z" transform="translate(-4 -4)" fill="currentColor"></path>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                      
 
+                                    </div>
+
+
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                  @endforeach
+               
             </div>
             <div class="swiper__nav--btn swiper-button-next"></div>
             <div class="swiper__nav--btn swiper-button-prev"></div>
@@ -189,11 +149,14 @@
                                                 </a>
                                             </li>
 
-                                            <li class="product__items--action__list" >
+                                            <li class="product__items--action__list">
                                                 <a class="product__items--action__btn view_modal" data-id="{{ $product->id }}" data-open="modal1" href="javascript:void(0)">
-                                                        <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg"  width="25.51" height="23.443" viewBox="0 0 512 512"><path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
-                                                        <span class="visually-hidden">Quick View</span>
-                                                    </a>
+                                                    <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg" width="25.51" height="23.443" viewBox="0 0 512 512">
+                                                        <path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
+                                                        <circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
+                                                    </svg>
+                                                    <span class="visually-hidden">Quick View</span>
+                                                </a>
                                             </li>
                                         </ul>
 
@@ -212,7 +175,7 @@
     </section>
     <!-- End product section -->
 
-  
+
 
     <!-- Start product section -->
     <section class="product__section section--padding pt-0">
