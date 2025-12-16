@@ -39,6 +39,10 @@ Route::get('/wishlist', [CartController::class, 'wishlistitem'])->name('wishlist
 Route::get('/wishlistproduct', [CartController::class, 'getAllwishlistproduct'])->name('wishlistproduct');
 Route::post('/wishlist/remove', [CartController::class, 'removewish'])
     ->name('wishlist.remove');
+Route::get('/product-detail/{id}', [WebController::class, 'product_detail'])->name('product-detail');
+Route::get('/all-product-details/{id}', [WebController::class, 'all_product'])->name('all-product-details');
+
+
 
 
 

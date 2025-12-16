@@ -389,6 +389,7 @@ class CartController extends Controller
 
         $productId = $data['product_id'];
         $quantity = $data['qty'] ?? 1;
+         $price = $data['price'] ?? 1;
 
         try {
             if (auth()->check()) {
@@ -604,4 +605,7 @@ class CartController extends Controller
         $user = auth()->user();
         return view('checkout-review', compact('user'));
     }
+
+
+
 }

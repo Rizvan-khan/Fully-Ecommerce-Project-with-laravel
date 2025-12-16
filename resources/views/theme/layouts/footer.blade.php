@@ -11,7 +11,7 @@
                         </button>
                     </h2>
                     <div class="footer__widget--inner">
-                        <p class="footer__widget--desc text-ofwhite mb-20">Lorem ipsum dolor sit amet, consectetur adipisici ti elit <br> seddo eiusmod tempor incididunt utlabore et dolore <br> magna aliqua  enim ad minim veniam quisnostrud <br> exercitation ullamco</p>
+                        <!-- <p class="footer__widget--desc text-ofwhite mb-20">Lorem ipsum dolor sit amet, consectetur adipisici ti elit <br> seddo eiusmod tempor incididunt utlabore et dolore <br> magna aliqua  enim ad minim veniam quisnostrud <br> exercitation ullamco</p> -->
                         <div class="footer__social">
                             <h3 class="social__title text-ofwhite h4 mb-15">Follow Us</h3>
                             <ul class="social__shear d-flex">
@@ -61,12 +61,12 @@
                             </button>
                         </h2>
                         <ul class="footer__widget--menu footer__widget--inner">
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="my-account.html">My Account</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="cart.html">Shopping Cart</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="login.html">Login</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="login.html">Register</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="checkout.html">Checkout</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="wishlist.html">Wishlist</a></li>
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="my-account">My Account</a></li>
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="cart">Shopping Cart</a></li>
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="login">Login</a></li>
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="login">Register</a></li>
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="checkout">Checkout</a></li>
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="wishlist">Wishlist</a></li>
                         </ul>
                     </div>
                     <div class="footer__widget">
@@ -78,12 +78,12 @@
                             </button>
                         </h2>
                         <ul class="footer__widget--menu footer__widget--inner">
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="about.html">About Us</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="contact.html">Contact Us</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="portfolio.html">Portfolio</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="privacy-policy.html">Privacy Policy</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="compare.html">Compare</a></li>
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="faq.html">Frequently</a></li>
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="about">About Us</a></li>
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="contact">Contact Us</a></li>
+                            <!-- <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="portfolio.html">Portfolio</a></li> -->
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="privacy-policy">Privacy Policy</a></li>
+                            <!-- <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="compare.html">Compare</a></li> -->
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="faq">Frequently</a></li>
                         </ul>
                     </div>
                 </div>
@@ -100,24 +100,9 @@
                             <div class="instagram__thumbnail">
                                 <a class="instagram__thumbnail--img" target="_blank" href="https://www.instagram.com/p/CZkF3TLBTT7"><img src="assets/img/other/instagram1.webp" alt="instagram"></a>
                             </div>
-                            <div class="instagram__thumbnail">
-                                <a class="instagram__thumbnail--img" target="_blank" href="https://www.instagram.com/p/CZkF60sBxhN"><img src="assets/img/other/instagram2.webp" alt="instagram"></a>
-                            </div>
-                            <div class="instagram__thumbnail">
-                                <a class="instagram__thumbnail--img" target="_blank" href="https://www.instagram.com/p/CZkF90ZB6HG"><img src="assets/img/other/instagram3.webp" alt="instagram"></a>
-                            </div>
+                           
                         </div>
-                        <div class="footer__instagram--list d-flex">
-                            <div class="instagram__thumbnail">
-                                <a class="instagram__thumbnail--img" target="_blank" href="https://www.instagram.com/p/CZkGAe6BQeu"><img src="assets/img/other/instagram4.webp" alt="instagram"></a>
-                            </div>
-                            <div class="instagram__thumbnail">
-                                <a class="instagram__thumbnail--img" target="_blank" href="https://www.instagram.com/p/CZkGCWcBbv9"><img src="assets/img/other/instagram5.webp" alt="instagram"></a>
-                            </div>
-                            <div class="instagram__thumbnail">
-                                <a class="instagram__thumbnail--img" target="_blank" href="https://www.instagram.com/p/CZkGFDMhoid"><img src="assets/img/other/instagram6.webp" alt="instagram"></a>
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
                 <div class="footer__widget footer__widget--width">
@@ -142,7 +127,7 @@
                 </div>
             </div>
             <div class="footer__bottom d-flex justify-content-between align-items-center">
-                <p class="copyright__content text-ofwhite m-0">Copyright © 2022 <a class="copyright__content--link" href="index.html">Suruchi</a> . All Rights Reserved.Design By Suruchi</p>
+                <p class="copyright__content text-ofwhite m-0">Copyright © 2025 <a class="copyright__content--link" href="index.html">Demo Project</a> . All Rights Reserved.Design Rizvan Khan</p>
                 <div class="footer__payment text-right">
                     <img class="display-block" src="assets/img/other/payment-visa-card.png" alt="visa-card">
                 </div>

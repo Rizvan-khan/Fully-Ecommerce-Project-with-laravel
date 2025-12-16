@@ -214,7 +214,7 @@
                                             <ul class="header__mega--sub__menu">
                                                 @foreach($cat->subcategories as $sub)
                                                 <li class="header__mega--sub__menu_li">
-                                                    <a class="header__mega--sub__menu--title" href="{{ url('category/'.$sub->id) }}">
+                                                    <a class="header__mega--sub__menu--title" href="{{ url('all-product-details/'.$sub->id) }}">
                                                         {{ $sub->name }}
                                                     </a>
                                                 </li>
@@ -228,25 +228,25 @@
                                 </li>
 
                                 <li class="header__menu--items style2">
-                                    <a class="header__menu--link" href="about.html">About US </a>
+                                    <a class="header__menu--link" href="about">About US </a>
                                 </li>
                                 <li class="header__menu--items style2">
-                                    <a class="header__menu--link" href="blog.html">Blog
+                                    <a class="header__menu--link" href="blog">Blog
                                         <svg class="menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12" height="7.41" viewBox="0 0 12 7.41">
                                             <path d="M16.59,8.59,12,13.17,7.41,8.59,6,10l6,6,6-6Z" transform="translate(-6 -8.59)" fill="currentColor" opacity="0.7" />
                                         </svg>
                                     </a>
                                     <ul class="header__sub--menu">
-                                        <li class="header__sub--menu__items"><a href="blog.html" class="header__sub--menu__link">Blog Grid</a></li>
-                                        <li class="header__sub--menu__items"><a href="blog-details.html" class="header__sub--menu__link">Blog Details</a></li>
+                                        <li class="header__sub--menu__items"><a href="blog" class="header__sub--menu__link">Blog Grid</a></li>
+                                        <!-- <li class="header__sub--menu__items"><a href="blog-details.html" class="header__sub--menu__link">Blog Details</a></li>
                                         <li class="header__sub--menu__items"><a href="blog-left-sidebar.html" class="header__sub--menu__link">Blog Left Sidebar</a></li>
-                                        <li class="header__sub--menu__items"><a href="blog-right-sidebar.html" class="header__sub--menu__link">Blog Right Sidebar</a></li>
+                                        <li class="header__sub--menu__items"><a href="blog-right-sidebar.html" class="header__sub--menu__link">Blog Right Sidebar</a></li> -->
                                     </ul>
                                 </li>
 
 
                                 <li class="header__menu--items style2">
-                                    <a class="header__menu--link " href="contact.html">Contact </a>
+                                    <a class="header__menu--link " href="contact">Contact </a>
                                 </li>
                             </ul>
                         </nav>
@@ -263,7 +263,7 @@
                                 </a>
                             </li>
                             <li class="header__account--items header__account2--items">
-                                <a class="header__account--btn" href="my-account.html">
+                                <a class="header__account--btn" href="my-account">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="26.51" height="23.443" viewBox="0 0 512 512">
                                         <path d="M344 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
                                         <path d="M256 304c-87 0-175.3 48-191.64 138.6C62.39 453.52 68.57 464 80 464h352c11.44 0 17.62-10.48 15.65-21.4C431.3 352 343 304 256 304z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
@@ -305,7 +305,7 @@
                         <nav class="header__menu--navigation">
                             <ul class="d-flex">
                                 <li class="header__menu--items">
-                                    <a class="header__menu--link" href="index.html">Home
+                                    <a class="header__menu--link" href="index">Home
 
                                     </a>
 
@@ -331,7 +331,7 @@
                                                 {{-- Subcategories --}}
                                                 @foreach($cat->subcategories as $sub)
                                                 <li class="header__mega--sub__menu_li">
-                                                    <a class="header__mega--sub__menu--title" href="{{ url('subcategory/'.$sub->id) }}">
+                                                    <a class="header__mega--sub__menu--title" href="{{ url('all-product-details/'.$sub->id) }}">
                                                         {{ $sub->name }}
                                                     </a>
                                                 </li>
@@ -346,25 +346,25 @@
 
 
                                 <li class="header__menu--items">
-                                    <a class="header__menu--link" href="about.html">About US </a>
+                                    <a class="header__menu--link" href="about">About US </a>
                                 </li>
                                 <li class="header__menu--items">
-                                    <a class="header__menu--link" href="blog.html">Blog
+                                    <a class="header__menu--link" href="blog">Blog
                                         <svg class="menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12" height="7.41" viewBox="0 0 12 7.41">
                                             <path d="M16.59,8.59,12,13.17,7.41,8.59,6,10l6,6,6-6Z" transform="translate(-6 -8.59)" fill="currentColor" opacity="0.7" />
                                         </svg>
                                     </a>
                                     <ul class="header__sub--menu">
-                                        <li class="header__sub--menu__items"><a href="blog.html" class="header__sub--menu__link">Blog Grid</a></li>
-                                        <li class="header__sub--menu__items"><a href="blog-details.html" class="header__sub--menu__link">Blog Details</a></li>
+                                        <li class="header__sub--menu__items"><a href="blog" class="header__sub--menu__link">Blog Grid</a></li>
+                                        <!-- <li class="header__sub--menu__items"><a href="blog-details.html" class="header__sub--menu__link">Blog Details</a></li>
                                         <li class="header__sub--menu__items"><a href="blog-left-sidebar.html" class="header__sub--menu__link">Blog Left Sidebar</a></li>
-                                        <li class="header__sub--menu__items"><a href="blog-right-sidebar.html" class="header__sub--menu__link">Blog Right Sidebar</a></li>
+                                        <li class="header__sub--menu__items"><a href="blog-right-sidebar.html" class="header__sub--menu__link">Blog Right Sidebar</a></li> -->
                                     </ul>
                                 </li>
 
 
                                 <li class="header__menu--items">
-                                    <a class="header__menu--link" href="contact.html">Contact </a>
+                                    <a class="header__menu--link" href="contact">Contact </a>
                                 </li>
                             </ul>
                         </nav>
@@ -424,7 +424,7 @@
                                         {{-- Subcategories --}}
                                         @foreach($cat->subcategories as $sub)
                                         <li class="offcanvas__sub_menu_li" style="padding-left:18px">
-                                            <a class="offcanvas__sub_menu_item" href="{{ url('subcategory/'.$sub->id) }}">
+                                            <a class="offcanvas__sub_menu_item" href="{{ url('all-product-details/'.$sub->id) }}">
                                                 {{ $sub->name }}
                                             </a>
                                         </li>
@@ -440,11 +440,11 @@
                         </li>
 
 
-                        <li class="offcanvas__menu_li"><a class="offcanvas__menu_item" href="about.html">About</a></li>
-                        <li class="offcanvas__menu_li"><a class="offcanvas__menu_item" href="contact.html">Contact</a></li>
+                        <li class="offcanvas__menu_li"><a class="offcanvas__menu_item" href="about">About</a></li>
+                        <li class="offcanvas__menu_li"><a class="offcanvas__menu_item" href="contact">Contact</a></li>
                     </ul>
                     <div class="offcanvas__account--items">
-                        <a class="offcanvas__account--items__btn d-flex align-items-center" href="login.html">
+                        <a class="offcanvas__account--items__btn d-flex align-items-center" href="login">
                             <span class="offcanvas__account--items__icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20.51" height="19.443" viewBox="0 0 512 512">
                                     <path d="M344 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />

@@ -21,6 +21,7 @@ $(document).on('click', '.addToCartBtn', function (e) {
     e.preventDefault();
 
     let product_id = $(this).data('id');
+       let price = $(this).data('price');
     // optional: let qty = parseInt($(this).closest('.product').find('.qty-input').val()) || 1;
     let qty = 1;
 
@@ -29,7 +30,8 @@ $(document).on('click', '.addToCartBtn', function (e) {
         method: "POST",
         data: {
             product_id: product_id,
-            qty: qty,              // match controller validation key
+            qty: qty,  
+            price: price,            // match controller validation key
            
             _token: CSRF_TOKEN
         },
