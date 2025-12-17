@@ -33,7 +33,7 @@ Route::post('/cart/decrease', [CartController::class, 'decreaseQty']);
 Route::post('/cart/increase', [CartController::class, 'increaseQty']);
 // Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
 
-Route::post('/add-to-cart', [CartController::class, 'addToWishlist'])->name('add.to.cart');
+Route::post('/add-to-wishlist', [CartController::class, 'addToWishlist'])->name('add.to.wishlist');
 Route::get('/wishlist/count', [CartController::class, 'wishlistCount'])->name('wishlist.count');
 Route::get('/wishlist', [CartController::class, 'wishlistitem'])->name('wishlist');
 Route::get('/wishlistproduct', [CartController::class, 'getAllwishlistproduct'])->name('wishlistproduct');
@@ -95,7 +95,7 @@ Route::middleware(['auth', 'role:seller'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {
-    Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard');
+    Route::get('/index', [WebController::class, 'index'])->name('index');
     Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
     Route::post('/save-details', [CartController::class, 'saveDetails'])->name('save-details');
     Route::get('/checkout/review', [CartController::class, 'checkout_review'])->name('checkout.review');

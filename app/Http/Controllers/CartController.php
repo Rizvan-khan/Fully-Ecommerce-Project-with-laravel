@@ -29,9 +29,11 @@ class CartController extends Controller
 
         $productId = $data['product_id'];
         $quantity = $data['qty'] ?? 1;
+        // $price = $data['price'] ?? 1;
 
         try {
             if (auth()->check()) {
+                unset($data['price']);
                 $userId = auth()->id();
 
                 // If cart item already exists for user -> increment qty
@@ -68,7 +70,7 @@ class CartController extends Controller
                 $cart[$productId] = [
                     'product_id' => $productId,
                     'qty'        => $quantity,
-                    'price'      => $price,
+                    'price'      => $data['price'] ?? 0
                 ];
             }
 
@@ -389,10 +391,11 @@ class CartController extends Controller
 
         $productId = $data['product_id'];
         $quantity = $data['qty'] ?? 1;
-         $price = $data['price'] ?? 1;
+        $price = $data['price'] ?? 1;
 
         try {
             if (auth()->check()) {
+                unset($price);
                 $userId = auth()->id();
 
                 // If cart item already exists for user -> increment qty
@@ -605,7 +608,4 @@ class CartController extends Controller
         $user = auth()->user();
         return view('checkout-review', compact('user'));
     }
-
-
-
 }

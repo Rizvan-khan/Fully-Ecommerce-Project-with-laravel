@@ -19,6 +19,7 @@ function showToast(type, message) {
 
 $(document).on('click', '.addToCartBtn', function (e) {
     e.preventDefault();
+    // console.log('heeeee');
 
     let product_id = $(this).data('id');
        let price = $(this).data('price');
@@ -31,8 +32,7 @@ $(document).on('click', '.addToCartBtn', function (e) {
         data: {
             product_id: product_id,
             qty: qty,  
-            price: price,            // match controller validation key
-           
+            price: price,            // match controller validation key          
             _token: CSRF_TOKEN
         },
         success: function (res) {
@@ -54,8 +54,9 @@ $(document).on('click', '.addToCartBtn', function (e) {
             } else if (xhr.responseText) {
                 msg = xhr.responseText;
             }
+             console.error('Add to cart error:', xhr);
             showToast('error', msg);
-            console.error('Add to cart error:', xhr);
+           
         }
     });
 });
@@ -540,6 +541,7 @@ $(document).on('click', '.addToWish', function (e) {
     e.preventDefault();
 
     let product_id = $(this).data('id');
+    let price = $(this).data('price');
     // optional: let qty = parseInt($(this).closest('.product').find('.qty-input').val()) || 1;
     let qty = 1;
 
@@ -548,13 +550,14 @@ $(document).on('click', '.addToWish', function (e) {
         method: "POST",
         data: {
             product_id: product_id,
-            qty: qty,              // match controller validation key
+            qty: qty, 
+            price:price,            // match controller validation key
            
             _token: CSRF_TOKEN
         },
         success: function (res) {
 
-            console.log(res);
+            // console.log(res);
 
             if(res.status === 'success') {
                 showToast('success', res.message);
@@ -572,7 +575,7 @@ $(document).on('click', '.addToWish', function (e) {
                 msg = xhr.responseText;
             }
             showToast('error', msg);
-            console.error('Add to Wishlist error:', xhr);
+            // console.error('Add to Wishlist error:', xhr);
         }
     });
 });
@@ -601,7 +604,7 @@ function loadAllWishlistItems() {
 
         success: function (res) {
 
-            console.log(res);
+            // console.log(res);
 
             if(res.status){
                 let html = '';
