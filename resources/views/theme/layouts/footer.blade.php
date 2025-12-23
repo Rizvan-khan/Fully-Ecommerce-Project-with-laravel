@@ -160,7 +160,10 @@
 </script>
   <!-- Customscript js -->
   <script src="{{ asset('theme/assets/js/script.js')}}"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id={{ config('paypal.sandbox.client_id') }}"></script>
+
   <script src="{{ asset('theme/assets/ajax/custom.js')}}"></script>
+  
   
 </body>
 

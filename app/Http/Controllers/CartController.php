@@ -6,9 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Wishlist;
 use App\Models\Admin\Product;
-// use Dotenv\Validator;
 use Illuminate\Support\Facades\Validator;
-// 
 use Illuminate\Support\Facades\DB;
 use App\Models\User_detail;
 use App\Models\User;

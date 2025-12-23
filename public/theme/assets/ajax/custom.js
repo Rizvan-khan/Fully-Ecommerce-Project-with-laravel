@@ -29,6 +29,7 @@ $(document).on('click', '.addToCartBtn', function (e) {
     $.ajax({
         url: CART_ROUTE,
         method: "POST",
+        
         data: {
             product_id: product_id,
             qty: qty,  
@@ -315,7 +316,7 @@ $(document).on('click', '.removeCartItem', function (e) {
         method: "POST",
         data: {
             product_id: product_id,
-            _token: $('meta[name="csrf-token"]').attr('content')
+           _token: CSRF_TOKEN
         },
         success: function(res) {
             loadAllCartItems();
@@ -528,7 +529,7 @@ $(document).on('click', '.increase', function () {
 
     $.post('/cart/increase', {
         product_id: product_id,
-        _token: $('meta[name="csrf-token"]').attr('content')
+        _token: CSRF_TOKEN
     }, function () {
         loadAllCartItems();
     });
@@ -772,7 +773,48 @@ $("#checkoutForm").on("submit", function(e) {
 });
 
 
+// paypal integration code
+document.addEventListener('DOMContentLoaded', function () {
 
+    const csrfToken = CSRF_TOKEN;
+paypal.Buttons({
+   
+
+    createOrder: function () {
+        return fetch("/paypal/create-order", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": CSRF_TOKEN
+            }
+        })
+        .then(res => res.json())
+        .then(data => data.id);
+          console.log(data);
+    },
+
+    onApprove: function (data) {
+        return fetch("/paypal/capture-order", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": CSRF_TOKEN
+            },
+            body: JSON.stringify({
+                orderID: data.orderID
+            })
+        })
+        .then(res => res.json())
+        .then(details => {
+            alert("Payment Successful 🎉");
+            console.log(details);
+        });
+    }
+
+}).render('#paypal-button-container');
+});
+
+// paypal ends here
 
 
   // page load pe update

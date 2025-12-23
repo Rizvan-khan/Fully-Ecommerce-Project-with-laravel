@@ -26,9 +26,7 @@ class WebController extends Controller
    {
 
       $product_details = Product::findOrFail($id);
-
-
-      return view('product-details', compact('product_details'));
+ return view('product-details', compact('product_details'));
    }
 
 

@@ -5,11 +5,15 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebController;
-
+use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\CartController;
 
 // Public routes
+
+Route::get('/paypal', [PaypalController::class, 'index']);
+Route::post('/paypal/create-order', [PaypalController::class, 'createOrder']);
+Route::post('/paypal/capture-order', [PaypalController::class, 'captureOrder']);
 
 Route::get('/', [WebController::class, 'index']);
 Route::get('/index', [WebController::class, 'index']);
@@ -95,8 +99,12 @@ Route::middleware(['auth', 'role:seller'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {
-    Route::get('/index', [WebController::class, 'index'])->name('index');
+    Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard');
     Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
     Route::post('/save-details', [CartController::class, 'saveDetails'])->name('save-details');
     Route::get('/checkout/review', [CartController::class, 'checkout_review'])->name('checkout.review');
+
+
+
+
 });

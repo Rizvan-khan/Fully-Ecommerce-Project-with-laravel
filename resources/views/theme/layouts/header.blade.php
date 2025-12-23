@@ -18,8 +18,8 @@
 
     <!-- Custom Style CSS -->
     <link rel="stylesheet" href="{{ asset('theme/assets/css/style.css') }}">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 <!--  -->
 
 </head>
