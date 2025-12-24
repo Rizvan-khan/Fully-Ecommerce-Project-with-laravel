@@ -8,15 +8,16 @@ use App\Http\Controllers\WebController;
 use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\CartController;
+use App\Models\Order;
 
 // Public routes
 
-Route::get('/paypal', [PaypalController::class, 'index']);
+Route::get('/paypal', [PaypalController::class, 'index'])->name('paypal');
 Route::post('/paypal/create-order', [PaypalController::class, 'createOrder']);
 Route::post('/paypal/capture-order', [PaypalController::class, 'captureOrder']);
 
 Route::get('/', [WebController::class, 'index']);
-Route::get('/index', [WebController::class, 'index']);
+Route::get('/index', [WebController::class, 'index'])->name('index');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
@@ -103,7 +104,11 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
     Route::post('/save-details', [CartController::class, 'saveDetails'])->name('save-details');
     Route::get('/checkout/review', [CartController::class, 'checkout_review'])->name('checkout.review');
-
+    Route::post('/cash', [CartController::class, 'cashOnDelivery'])->name('cash');
+Route::get('/order-success/{id}', function ($id) {
+    $order = Order::findOrFail($id);
+    return view('order-success', compact('order'));
+})->name('order-success');
 
 
 

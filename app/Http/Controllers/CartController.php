@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use App\Models\User_detail;
 use App\Models\User;
+use App\Models\Order;
+use App\Models\Order_item;
 
 class CartController extends Controller
 {
@@ -605,5 +607,87 @@ class CartController extends Controller
     {
         $user = auth()->user();
         return view('checkout-review', compact('user'));
+    }
+
+    public function cashOnDelivery(Request $request)
+    {
+
+        $user = auth()->user();
+
+        // 1️⃣ Fetch user cart
+        $cartItems = Cart::where('user_id', $user->id)->get();
+
+        if ($cartItems->isEmpty()) {
+            return back()->with('error', 'Cart is empty');
+        }
+
+        DB::beginTransaction();
+
+        try {
+
+            // 2️⃣ Calculate subtotal
+            $subtotal = 0;
+            foreach ($cartItems as $item) {
+                $product = Product::findOrFail($item->product_id);
+                $subtotal += $product->price * $item->qty;
+            }
+
+            $tax = 0;
+            $shipping = 0;
+            $discount = 0;
+            $total = $subtotal + $tax + $shipping - $discount;
+
+            // 3️⃣ Create order
+            $order = Order::create([
+                'order_number'    => 'ORD' . time(),
+                'user_id'         => $user->id,
+                'payment_method'  => 'COD',
+                'payment_status'  => 'pending',
+                'order_status'    => 'confirmed',
+                'subtotal'        => $subtotal,
+                'tax'             => $tax,
+                'shipping_charge' => $shipping,
+                'discount'        => $discount,
+                'total_amount'    => $total,
+                'currency'        => 'INR',
+
+                // User snapshot
+                'name'    => $request->name,
+                'email'   => $user->email ?? '',
+                'phone'   => $user->mobile ?? '',
+
+                'address' => $request->address,
+                'city'    => $request->district,
+                'state'   => $request->state ?? '',
+                'pincode' => $request->pin_code,
+                'country' => $request->country,
+            ]);
+
+            // 4️⃣ Create order items
+            foreach ($cartItems as $item) {
+
+                $product = Product::findOrFail($item->product_id);
+
+                Order_item::create([
+                    'order_id'   => $order->id,
+                    'product_id' => $item->product_id,
+                    'price'      => $product->price, // ✅ product table se
+                    'qty'        => $item->qty,
+                    'total'      => $product->price * $item->qty,
+                ]);
+            }
+
+            // 5️⃣ Clear cart
+            Cart::where('user_id', $user->id)->delete();
+
+            DB::commit();
+
+            // 6️⃣ Success redirect
+            return redirect()->route('order-success', $order->id)
+                ->with('success', 'Order placed successfully (Cash on Delivery)');
+        } catch (\Exception $e) {
+            DB::rollback();
+            dd($e->getMessage()); // Debug error, remove in production
+        }
     }
 }

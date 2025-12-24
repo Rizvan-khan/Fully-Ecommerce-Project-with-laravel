@@ -30,7 +30,7 @@
                             <div class="cart__table checkout__product--table">
                                 <table class="summary__table">
                                     <tbody class="summary__table--body checkoutbody">
-                                       
+
 
                                     </tbody>
                                 </table>
@@ -92,7 +92,8 @@
                     </nav>
                 </header>
                 <main class="main__content_wrapper">
-                    <form id="changeDetail">
+                    <form id="changeDetail" method="POST">
+                        @csrf
                         <div class="checkout__content--step checkout__contact--information2 border-radius-5">
                             <div class="checkout__review d-flex justify-content-between align-items-center">
                                 <div class="checkout__review--inner d-flex align-items-center">
@@ -122,22 +123,7 @@
                             </div>
                             <div class="checkout__content--step__inner3 border-radius-5">
                                 <div class="checkout__address--content__header">
-                                    <!-- <div class="shipping__contact--box__list">
-                                        <div class="shipping__radio--input">
-                                            <input class="shipping__radio--input__field" id="radiobox" name="checkmethod" type="radio">
-                                        </div>
-                                        <label class="shipping__radio--label" for="radiobox">
-                                            <span class="shipping__radio--label__primary">Same as shipping address</span>
-                                        </label>
-                                    </div> -->
-                                    <!-- <div class="shipping__contact--box__list">
-                                        <div class="shipping__radio--input">
-                                            <input class="shipping__radio--input__field" id="radiobox2" name="checkmethod" type="radio">
-                                        </div>
-                                        <label class="shipping__radio--label" for="radiobox2">
-                                            <span class="shipping__radio--label__primary">Use a different billing address</span>
-                                        </label>
-                                    </div> -->
+
                                 </div>
                                 <div class="checkout__content--input__box--wrapper ">
                                     <div class="row">
@@ -197,9 +183,23 @@
                             </div>
                         </div>
                         <div class="checkout__content--step__footer d-flex align-items-center">
-                           
-                        <a class="continue__shipping--btn primary__btn border-radius-5" href="paypal">Pay now</a>
-                            <a class="previous__link--content" href="shop.html">Return to shipping</a>
+                            <button type="button"
+                                id="codBtn"
+                                data-action="{{ route('cash') }}"
+                                class="continue__shipping--btn primary__btn border-radius-5">
+                                Cash On Delivery
+                            </button>
+
+                          
+
+                            <a class="previous__link--content" href="{{route('index')}}">Return to shipping</a>
+
+                              <button type="button"
+                                id="paypalBtn"
+                                data-action="{{ route('paypal') }}"
+                                class="continue__shipping--btn primary__btn border-radius-5">
+                                Pay With Paypal
+                            </button>
                         </div>
                     </form>
                 </main>
@@ -211,8 +211,8 @@
                 <div class="cart__table checkout__product--table">
                     <table class="cart__table--inner">
                         <tbody class="cart__table--body newcheckbody">
-                           
-                           
+
+
                         </tbody>
                     </table>
                 </div>

@@ -817,6 +817,20 @@ paypal.Buttons({
 // paypal ends here
 
 
+document.getElementById('codBtn').addEventListener('click', function () {
+    let form = document.getElementById('changeDetail');
+    form.action = this.getAttribute('data-action');
+    form.submit();
+});
+
+document.getElementById('paypalBtn').addEventListener('click', function () {
+    let form = document.getElementById('changeDetail');
+    form.action = this.getAttribute('data-action');
+    form.submit();
+});
+
+
+
   // page load pe update
   
 
