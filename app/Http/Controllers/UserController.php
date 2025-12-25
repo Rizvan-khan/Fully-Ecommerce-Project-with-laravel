@@ -10,4 +10,11 @@ class UserController extends Controller
     {
         return view('user.dashboard');
     }
+
+public function myAccount()
+    {
+          $orders = auth()->user()->orders()->latest()->get();
+        return view('my-account',compact('orders'));
+    }
+
 }

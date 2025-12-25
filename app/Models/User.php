@@ -46,6 +46,13 @@ public function products()
         return $this->hasOne(User_detail::class);
     }
 
+   
+public function orders()
+{
+    return $this->hasMany(Order::class);
+}
+
+
 
 
     /**

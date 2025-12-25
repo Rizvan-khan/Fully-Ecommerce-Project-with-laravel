@@ -101,6 +101,7 @@ Route::middleware(['auth', 'role:seller'])->group(function () {
 
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard');
+     Route::get('/user/account', [UserController::class, 'myAccount'])->name('user.account');
     Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
     Route::post('/save-details', [CartController::class, 'saveDetails'])->name('save-details');
     Route::get('/checkout/review', [CartController::class, 'checkout_review'])->name('checkout.review');
